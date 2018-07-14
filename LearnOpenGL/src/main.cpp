@@ -133,7 +133,7 @@ int main()
 		return -1;
 
 
-	Shader shader("shader.vs", "shader.fs");
+	Shader shader("src/shader.vs", "src/shader.fs");
 
 	int VAO = InitVAO();
 	if (VAO == -1)
