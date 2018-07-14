@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\Repositories\LearnOpenGL\LearnOpenGL\Libraries\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Repositories\LearnOpenGL\LearnOpenGL\src;D:\Repositories\LearnOpenGL\LearnOpenGL\Libraries\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Repositories\LearnOpenGL\LearnOpenGL\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -82,6 +82,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Repositories\LearnOpenGL\LearnOpenGL\src;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
