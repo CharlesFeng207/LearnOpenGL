@@ -1,20 +1,7 @@
 ﻿#include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <learnopengl/shader_s.h>
-
-const char *vertexShaderSource = "#version 330 core\n"
-"layout (location = 0) in vec3 aPos;\n"
-"void main()\n"
-"{\n"
-"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-"}\0";
-const char *fragmentShaderSource = "#version 330 core\n"
-"out vec4 FragColor;\n"
-"void main()\n"
-"{\n"
-"   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-"}\n\0";
+#include <learnopengl/shader.h>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
@@ -81,10 +68,10 @@ int InitVAO()
 	// which is a small space where the x, y and z values vary from -1.0 to 1.0. 
 	// ------------------------------------------------------------------
 	float vertices[] = {
-		0.5f,  0.5f, 0.0f,  // top right
-		0.5f, -0.5f, 0.0f,  // bottom right
-		-0.5f, -0.5f, 0.0f,  // bottom left
-		-0.5f,  0.5f, 0.0f   // top left 
+		0.5f,  0.5f, 0.0f, 0.0f, 0, 0, // top right
+		0.5f, -0.5f, 0.0f,  0, 0.0f, 0,// bottom right
+		-0.5f, -0.5f, 0.0f,  1.0f, 1.0f, 1.0f,// bottom left
+		-0.5f,  0.5f, 0.0f, 0, 0, 0// top left 
 	};
 	unsigned int indices[] = {  // note that we start from 0!
 		0, 1, 3,   // first triangle
@@ -107,12 +94,12 @@ int InitVAO()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-	// glVertexAttribPointer(layout location, size of the vertex attribute, type of the data, stride, 
-	// offset of where the position data begins in the buffer. )
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-
-	// attribute location as its argument; vertex attributes are disabled by default.
+	// position attribute
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+	// color attribute
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
 
 	// the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object 
 	// so afterwards we can safely unbind
@@ -155,6 +142,7 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		shader.use();
+		shader.setVec4("baseColor", 0.0f, 0.0f, 1.0f, 1.0f);
 
 		// seeing as we only have a single VAO there's no need to bind it every time,
 		// but we'll do so to keep things a bit more organized
