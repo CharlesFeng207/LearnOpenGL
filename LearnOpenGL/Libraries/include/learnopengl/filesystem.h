@@ -26,6 +26,8 @@ private:
     return root;
   }
 
+
+
   //static std::string(*foo (std::string const &)) getPathBuilder()
   static Builder getPathBuilder()
   {

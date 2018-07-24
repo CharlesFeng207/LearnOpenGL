@@ -2,6 +2,11 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <learnopengl/shader.h>
+#include <stb_image.h>
+#include <learnopengl/filesystem.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
@@ -60,6 +65,38 @@ GLFWwindow* initWindows()
 	return window;
 }
 
+int CreateTexture(char const *filename, int mode)
+{
+	// load and create a texture 
+	// -------------------------
+	unsigned int texture;
+	glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture); // all upcoming GL_TEXTURE_2D operations now have effect on this texture object
+										   // set the texture wrapping parameters
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	// set texture filtering parameters
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	// load image, create texture and generate mipmaps
+	int width, height, nrChannels;
+	stbi_set_flip_vertically_on_load(true);
+
+	unsigned char *data = stbi_load(filename, &width, &height, &nrChannels, 0);
+	if (data)
+	{
+		glTexImage2D(GL_TEXTURE_2D, 0, mode, width, height, 0, mode, GL_UNSIGNED_BYTE, data);
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else
+	{
+		std::cout << "Failed to load texture" << std::endl;
+	}
+	stbi_image_free(data);
+
+	return texture;
+}
+
 int InitVAO()
 {
 	// set up vertex data (and buffer(s)) and configure vertex attributes
@@ -68,11 +105,13 @@ int InitVAO()
 	// which is a small space where the x, y and z values vary from -1.0 to 1.0. 
 	// ------------------------------------------------------------------
 	float vertices[] = {
-		0.5f,  0.5f, 0.0f, 0.0f, 0, 0, // top right
-		0.5f, -0.5f, 0.0f,  0, 0.0f, 0,// bottom right
-		-0.5f, -0.5f, 0.0f,  1.0f, 1.0f, 1.0f,// bottom left
-		-0.5f,  0.5f, 0.0f, 0, 0, 0// top left 
+		// positions          // colors           // texture coords
+		0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
+		0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
+		-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
+		-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left 
 	};
+
 	unsigned int indices[] = {  // note that we start from 0!
 		0, 1, 3,   // first triangle
 		1, 2, 3    // second triangle
@@ -95,11 +134,14 @@ int InitVAO()
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	// position attribute
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 	// color attribute
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(1);
+	// texture coord attribute
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+	glEnableVertexAttribArray(2);
 
 	// the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object 
 	// so afterwards we can safely unbind
@@ -119,12 +161,14 @@ int main()
 	if (window == NULL)
 		return -1;
 
-
-	Shader shader("src/shader.vs", "src/shader.fs");
+	Shader shader("resources/shaders/shader.vs", "resources/shaders/shader.fs");
 
 	int VAO = InitVAO();
 	if (VAO == -1)
 		return -1;
+
+	int texture0 = CreateTexture("resources/textures/container.jpg", GL_RGB);
+	int texture1 = CreateTexture("resources/textures/window.png", GL_RGBA);
 
 	// uncomment this call to draw in wireframe polygons.
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -141,8 +185,28 @@ int main()
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, texture0);
+
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_2D, texture1);
+
 		shader.use();
-		shader.setVec4("baseColor", 0.0f, 0.0f, 1.0f, 1.0f);
+
+		// either set it manually like so:
+		//glUniform1i(glGetUniformLocation(shader.ID, "texture0"), 0);
+		//glUniform1i(glGetUniformLocation(shader.ID, "texture1"), 1);
+
+		shader.setInt("texture0", 0); // or with shader class
+		shader.setInt("texture1", 1); // or with shader class
+		shader.setVec4("baseColor", 0.0f, 0.0f, 0.1f, 0.0f);
+
+		glm::mat4 trans;
+		trans = glm::translate(trans, glm::vec3(0.5f, -0.5f, 0.0f));
+		trans = glm::rotate(trans, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+
+		unsigned int transformLoc = glGetUniformLocation(shader.ID, "transform");
+		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
 
 		// seeing as we only have a single VAO there's no need to bind it every time,
 		// but we'll do so to keep things a bit more organized

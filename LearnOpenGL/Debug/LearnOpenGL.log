@@ -1,4 +1,2 @@
 ﻿  main.cpp
-d:\repositories\learnopengl\learnopengl\libraries\include\learnopengl\shader.h(65): warning C4101: 'infoLog': unreferenced local variable
-d:\repositories\learnopengl\learnopengl\libraries\include\learnopengl\shader.h(64): warning C4101: 'success': unreferenced local variable
   LearnOpenGL.vcxproj -> D:\Repositories\LearnOpenGL\LearnOpenGL\Debug\LearnOpenGL.exe
