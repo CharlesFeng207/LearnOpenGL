@@ -15,16 +15,14 @@ const unsigned int SCR_HEIGHT = 600;
 glm::vec3 cameraPos = glm::vec3(-1.0f, 0.0f, 3.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -2.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
-float deltaTime = 0.0f;	// Time between current frame and last frame
+float deltaTime = 0.0f;    // Time between current frame and last frame
 float lastFrame = 0.0f; // Time of last frame
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
-{
+void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     glViewport(0, 0, width, height);
 }
 
-void processInput(GLFWwindow *window)
-{
+void processInput(GLFWwindow *window) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
@@ -49,26 +47,27 @@ void processInput(GLFWwindow *window)
         cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 }
 
-GLFWwindow* initWindows()
-{
+GLFWwindow *initWindows() {
     // In the main function we first initialize GLFW with glfwInit,
     // after which we can configure GLFW using glfwWindowHint.
-    glfwInit();
+    if (!glfwInit()) {
+        std::cout << "Failed to init GLFW " << std::endl;
+        return NULL;
+    }
 
     // The first argument of glfwWindowHint tells us what option we want to configure
     //  The second argument is an integer that sets the value of our option.
 
     // We set the major and minor version both to 3. We also tell GLFW we want to explicitly use the core-profile.
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     // Note that on Mac OS X you need to add glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); to your initialization code for it to work
     //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
-    if (window == NULL)
-    {
+    GLFWwindow *window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+    if (window == NULL) {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
         return NULL;
@@ -76,8 +75,7 @@ GLFWwindow* initWindows()
     glfwMakeContextCurrent(window);
 
     // initialize GLAD before we call any OpenGL function:
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
+    if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
         std::cout << "Failed to initialize GLAD" << std::endl;
         return NULL;
     }
@@ -90,15 +88,16 @@ GLFWwindow* initWindows()
     return window;
 }
 
-int CreateTexture(char const *filename, int mode)
-{
+int CreateTexture(char const *filename, int mode) {
     // load and create a texture
     // -------------------------
     unsigned int texture;
     glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture); // all upcoming GL_TEXTURE_2D operations now have effect on this texture object
+    glBindTexture(GL_TEXTURE_2D,
+                  texture); // all upcoming GL_TEXTURE_2D operations now have effect on this texture object
     // set the texture wrapping parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,
+                    GL_REPEAT);    // set texture wrapping to GL_REPEAT (default wrapping method)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     // set texture filtering parameters
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -108,13 +107,10 @@ int CreateTexture(char const *filename, int mode)
     stbi_set_flip_vertically_on_load(true);
 
     unsigned char *data = stbi_load(filename, &width, &height, &nrChannels, 0);
-    if (data)
-    {
+    if (data) {
         glTexImage2D(GL_TEXTURE_2D, 0, mode, width, height, 0, mode, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
-    }
-    else
-    {
+    } else {
         std::cout << "Failed to load texture" << std::endl;
     }
     stbi_image_free(data);
@@ -122,8 +118,7 @@ int CreateTexture(char const *filename, int mode)
     return texture;
 }
 
-int InitVAO()
-{
+int InitVAO() {
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // Once your vertex coordinates have been processed in the vertex shader,
     // they should be in normalized device coordinates (NDC),
@@ -131,10 +126,10 @@ int InitVAO()
     // ------------------------------------------------------------------
     float vertices[] = {
             // positions          // colors           // texture coords
-            0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
-            0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
-            -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
-            -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left
+            0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,   // top right
+            0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,   // bottom right
+            -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,   // bottom left
+            -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f    // top left
     };
 
     unsigned int indices[] = {  // note that we start from 0!
@@ -152,20 +147,21 @@ int InitVAO()
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO); // buffer type of a vertex buffer object is GL_ARRAY_BUFFER
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW); // copies the previously defined vertex data into the buffer's memory:
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices,
+                 GL_STATIC_DRAW); // copies the previously defined vertex data into the buffer's memory:
 
     // copy our index array in a element buffer for OpenGL to use
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
     // position attribute
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *) 0);
     glEnableVertexAttribArray(0);
     // color attribute
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *) (3 * sizeof(float)));
     glEnableVertexAttribArray(1);
     // texture coord attribute
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *) (6 * sizeof(float)));
     glEnableVertexAttribArray(2);
 
     // the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object
@@ -180,8 +176,7 @@ int InitVAO()
 }
 
 
-int main()
-{
+int main() {
 
     auto window = initWindows();
     if (window == NULL)
@@ -202,8 +197,7 @@ int main()
     // render loop
     glEnable(GL_DEPTH_TEST);
 
-    while (!glfwWindowShouldClose(window))
-    {
+    while (!glfwWindowShouldClose(window)) {
         processInput(window);
 
         // rendering commands here
@@ -241,7 +235,7 @@ int main()
 
         view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 
-        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        projection = glm::perspective(glm::radians(45.0f), (float) SCR_WIDTH / (float) SCR_HEIGHT, 0.1f, 100.0f);
 
         // retrieve the matrix uniform locations
         unsigned int modelLoc = glGetUniformLocation(shader.ID, "model");

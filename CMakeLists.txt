@@ -7,4 +7,5 @@ aux_source_directory(./src proj_src)
 include_directories(include)
 link_directories(lib)
 add_executable(learn_OpenGL ${proj_src})
-target_link_libraries(learn_OpenGL glfw3dll opengl32)
+
+target_link_libraries(learn_OpenGL glfw3 opengl32)
