@@ -15,6 +15,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   )
 set(CMAKE_DEPENDS_CHECK_CXX
   "E:/repos/learn-OpenGL/src/main.cpp" "E:/repos/learn-OpenGL/cmake-build-debug/CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj"
+  "E:/repos/learn-OpenGL/src/main2.cpp" "E:/repos/learn-OpenGL/cmake-build-debug/CMakeFiles/learn_OpenGL.dir/src/main2.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -25,6 +26,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "E:/repos/learn-OpenGL/cmake-build-debug/CMakeFiles/imgui.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
