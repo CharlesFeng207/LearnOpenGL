@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.obj"
+  "CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj"
   "CMakeFiles/learn_OpenGL.dir/src/glad.c.obj"
   "CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj"
-  "CMakeFiles/learn_OpenGL.dir/src/main2.cpp.obj"
   "learn_OpenGL.exe"
   "learn_OpenGL.exe.manifest"
   "learn_OpenGL.pdb"

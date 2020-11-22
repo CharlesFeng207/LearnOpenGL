@@ -5,15 +5,14 @@ CMakeFiles/learn_OpenGL.dir/src/glad.c.obj: ../include/KHR/khrplatform.h
 CMakeFiles/learn_OpenGL.dir/src/glad.c.obj: ../include/glad/glad.h
 CMakeFiles/learn_OpenGL.dir/src/glad.c.obj: ../src/glad.c
 
-CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj: ../include/GL/glew.h
-CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj: ../include/GLFW/glfw3.h
-CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj: ../include/KHR/khrplatform.h
-CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj: ../include/glad/glad.h
-CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj: ../include/imgui/imconfig.h
-CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj: ../include/imgui/imgui.h
-CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj: ../include/imgui/imgui_impl_glfw.h
-CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj: ../include/imgui/imgui_impl_opengl3.h
-CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj: ../src/main.cpp
+CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.obj: ../src/GUIExample.cpp
 
-CMakeFiles/learn_OpenGL.dir/src/main2.cpp.obj: ../src/main2.cpp
+CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj: ../include/GLFW/glfw3.h
+CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj: ../include/imgui/imconfig.h
+CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj: ../include/imgui/imgui.h
+CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj: ../include/imgui/imgui_impl_glfw.h
+CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj: ../include/imgui/imgui_impl_opengl3.h
+CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj: ../src/GUIManager.cpp
+CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj: ../src/GUIManager.h
+
 

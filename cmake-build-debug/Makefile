@@ -297,6 +297,60 @@ include/imgui/imgui_widgets.cpp.s:
 	$(MAKE) -f CMakeFiles\imgui.dir\build.make CMakeFiles/imgui.dir/include/imgui/imgui_widgets.cpp.s
 .PHONY : include/imgui/imgui_widgets.cpp.s
 
+src/GUIExample.obj: src/GUIExample.cpp.obj
+
+.PHONY : src/GUIExample.obj
+
+# target to build an object file
+src/GUIExample.cpp.obj:
+	$(MAKE) -f CMakeFiles\learn_OpenGL.dir\build.make CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.obj
+.PHONY : src/GUIExample.cpp.obj
+
+src/GUIExample.i: src/GUIExample.cpp.i
+
+.PHONY : src/GUIExample.i
+
+# target to preprocess a source file
+src/GUIExample.cpp.i:
+	$(MAKE) -f CMakeFiles\learn_OpenGL.dir\build.make CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.i
+.PHONY : src/GUIExample.cpp.i
+
+src/GUIExample.s: src/GUIExample.cpp.s
+
+.PHONY : src/GUIExample.s
+
+# target to generate assembly for a file
+src/GUIExample.cpp.s:
+	$(MAKE) -f CMakeFiles\learn_OpenGL.dir\build.make CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.s
+.PHONY : src/GUIExample.cpp.s
+
+src/GUIManager.obj: src/GUIManager.cpp.obj
+
+.PHONY : src/GUIManager.obj
+
+# target to build an object file
+src/GUIManager.cpp.obj:
+	$(MAKE) -f CMakeFiles\learn_OpenGL.dir\build.make CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj
+.PHONY : src/GUIManager.cpp.obj
+
+src/GUIManager.i: src/GUIManager.cpp.i
+
+.PHONY : src/GUIManager.i
+
+# target to preprocess a source file
+src/GUIManager.cpp.i:
+	$(MAKE) -f CMakeFiles\learn_OpenGL.dir\build.make CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.i
+.PHONY : src/GUIManager.cpp.i
+
+src/GUIManager.s: src/GUIManager.cpp.s
+
+.PHONY : src/GUIManager.s
+
+# target to generate assembly for a file
+src/GUIManager.cpp.s:
+	$(MAKE) -f CMakeFiles\learn_OpenGL.dir\build.make CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.s
+.PHONY : src/GUIManager.cpp.s
+
 src/glad.obj: src/glad.c.obj
 
 .PHONY : src/glad.obj
@@ -351,33 +405,6 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles\learn_OpenGL.dir\build.make CMakeFiles/learn_OpenGL.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/main2.obj: src/main2.cpp.obj
-
-.PHONY : src/main2.obj
-
-# target to build an object file
-src/main2.cpp.obj:
-	$(MAKE) -f CMakeFiles\learn_OpenGL.dir\build.make CMakeFiles/learn_OpenGL.dir/src/main2.cpp.obj
-.PHONY : src/main2.cpp.obj
-
-src/main2.i: src/main2.cpp.i
-
-.PHONY : src/main2.i
-
-# target to preprocess a source file
-src/main2.cpp.i:
-	$(MAKE) -f CMakeFiles\learn_OpenGL.dir\build.make CMakeFiles/learn_OpenGL.dir/src/main2.cpp.i
-.PHONY : src/main2.cpp.i
-
-src/main2.s: src/main2.cpp.s
-
-.PHONY : src/main2.s
-
-# target to generate assembly for a file
-src/main2.cpp.s:
-	$(MAKE) -f CMakeFiles\learn_OpenGL.dir\build.make CMakeFiles/learn_OpenGL.dir/src/main2.cpp.s
-.PHONY : src/main2.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -406,15 +433,18 @@ help:
 	@echo ... include/imgui/imgui_widgets.obj
 	@echo ... include/imgui/imgui_widgets.i
 	@echo ... include/imgui/imgui_widgets.s
+	@echo ... src/GUIExample.obj
+	@echo ... src/GUIExample.i
+	@echo ... src/GUIExample.s
+	@echo ... src/GUIManager.obj
+	@echo ... src/GUIManager.i
+	@echo ... src/GUIManager.s
 	@echo ... src/glad.obj
 	@echo ... src/glad.i
 	@echo ... src/glad.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
-	@echo ... src/main2.obj
-	@echo ... src/main2.i
-	@echo ... src/main2.s
 .PHONY : help
 
 

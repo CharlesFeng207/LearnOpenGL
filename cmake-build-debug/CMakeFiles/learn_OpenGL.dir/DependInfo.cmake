@@ -14,8 +14,9 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../include"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
+  "E:/repos/learn-OpenGL/src/GUIExample.cpp" "E:/repos/learn-OpenGL/cmake-build-debug/CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.obj"
+  "E:/repos/learn-OpenGL/src/GUIManager.cpp" "E:/repos/learn-OpenGL/cmake-build-debug/CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj"
   "E:/repos/learn-OpenGL/src/main.cpp" "E:/repos/learn-OpenGL/cmake-build-debug/CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj"
-  "E:/repos/learn-OpenGL/src/main2.cpp" "E:/repos/learn-OpenGL/cmake-build-debug/CMakeFiles/learn_OpenGL.dir/src/main2.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

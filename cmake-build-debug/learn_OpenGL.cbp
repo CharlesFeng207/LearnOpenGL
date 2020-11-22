@@ -153,13 +153,19 @@
 		<Unit filename="E:/repos/learn-OpenGL/include/imgui/imgui_widgets.cpp">
 			<Option target="imgui"/>
 		</Unit>
+		<Unit filename="E:/repos/learn-OpenGL/src/GUIExample.cpp">
+			<Option target="learn_OpenGL"/>
+		</Unit>
+		<Unit filename="E:/repos/learn-OpenGL/src/GUIManager.cpp">
+			<Option target="learn_OpenGL"/>
+		</Unit>
+		<Unit filename="E:/repos/learn-OpenGL/src/GUIManager.h">
+			<Option target="learn_OpenGL"/>
+		</Unit>
 		<Unit filename="E:/repos/learn-OpenGL/src/glad.c">
 			<Option target="learn_OpenGL"/>
 		</Unit>
 		<Unit filename="E:/repos/learn-OpenGL/src/main.cpp">
-			<Option target="learn_OpenGL"/>
-		</Unit>
-		<Unit filename="E:/repos/learn-OpenGL/src/main2.cpp">
 			<Option target="learn_OpenGL"/>
 		</Unit>
 		<Unit filename="E:/repos/learn-OpenGL/CMakeLists.txt">

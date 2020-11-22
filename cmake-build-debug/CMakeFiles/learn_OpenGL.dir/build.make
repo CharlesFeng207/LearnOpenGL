@@ -56,10 +56,38 @@ include CMakeFiles/learn_OpenGL.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/learn_OpenGL.dir/flags.make
 
+CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.obj: CMakeFiles/learn_OpenGL.dir/flags.make
+CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.obj: CMakeFiles/learn_OpenGL.dir/includes_CXX.rsp
+CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.obj: ../src/GUIExample.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\repos\learn-OpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\learn_OpenGL.dir\src\GUIExample.cpp.obj -c E:\repos\learn-OpenGL\src\GUIExample.cpp
+
+CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\repos\learn-OpenGL\src\GUIExample.cpp > CMakeFiles\learn_OpenGL.dir\src\GUIExample.cpp.i
+
+CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\repos\learn-OpenGL\src\GUIExample.cpp -o CMakeFiles\learn_OpenGL.dir\src\GUIExample.cpp.s
+
+CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj: CMakeFiles/learn_OpenGL.dir/flags.make
+CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj: CMakeFiles/learn_OpenGL.dir/includes_CXX.rsp
+CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj: ../src/GUIManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\repos\learn-OpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\learn_OpenGL.dir\src\GUIManager.cpp.obj -c E:\repos\learn-OpenGL\src\GUIManager.cpp
+
+CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\repos\learn-OpenGL\src\GUIManager.cpp > CMakeFiles\learn_OpenGL.dir\src\GUIManager.cpp.i
+
+CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\repos\learn-OpenGL\src\GUIManager.cpp -o CMakeFiles\learn_OpenGL.dir\src\GUIManager.cpp.s
+
 CMakeFiles/learn_OpenGL.dir/src/glad.c.obj: CMakeFiles/learn_OpenGL.dir/flags.make
 CMakeFiles/learn_OpenGL.dir/src/glad.c.obj: CMakeFiles/learn_OpenGL.dir/includes_C.rsp
 CMakeFiles/learn_OpenGL.dir/src/glad.c.obj: ../src/glad.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\repos\learn-OpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/learn_OpenGL.dir/src/glad.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\repos\learn-OpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/learn_OpenGL.dir/src/glad.c.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\learn_OpenGL.dir\src\glad.c.obj   -c E:\repos\learn-OpenGL\src\glad.c
 
 CMakeFiles/learn_OpenGL.dir/src/glad.c.i: cmake_force
@@ -73,7 +101,7 @@ CMakeFiles/learn_OpenGL.dir/src/glad.c.s: cmake_force
 CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj: CMakeFiles/learn_OpenGL.dir/flags.make
 CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj: CMakeFiles/learn_OpenGL.dir/includes_CXX.rsp
 CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\repos\learn-OpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\repos\learn-OpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\learn_OpenGL.dir\src\main.cpp.obj -c E:\repos\learn-OpenGL\src\main.cpp
 
 CMakeFiles/learn_OpenGL.dir/src/main.cpp.i: cmake_force
@@ -84,38 +112,26 @@ CMakeFiles/learn_OpenGL.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/learn_OpenGL.dir/src/main.cpp.s"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\repos\learn-OpenGL\src\main.cpp -o CMakeFiles\learn_OpenGL.dir\src\main.cpp.s
 
-CMakeFiles/learn_OpenGL.dir/src/main2.cpp.obj: CMakeFiles/learn_OpenGL.dir/flags.make
-CMakeFiles/learn_OpenGL.dir/src/main2.cpp.obj: CMakeFiles/learn_OpenGL.dir/includes_CXX.rsp
-CMakeFiles/learn_OpenGL.dir/src/main2.cpp.obj: ../src/main2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\repos\learn-OpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/learn_OpenGL.dir/src/main2.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\learn_OpenGL.dir\src\main2.cpp.obj -c E:\repos\learn-OpenGL\src\main2.cpp
-
-CMakeFiles/learn_OpenGL.dir/src/main2.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/learn_OpenGL.dir/src/main2.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\repos\learn-OpenGL\src\main2.cpp > CMakeFiles\learn_OpenGL.dir\src\main2.cpp.i
-
-CMakeFiles/learn_OpenGL.dir/src/main2.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/learn_OpenGL.dir/src/main2.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\repos\learn-OpenGL\src\main2.cpp -o CMakeFiles\learn_OpenGL.dir\src\main2.cpp.s
-
 # Object files for target learn_OpenGL
 learn_OpenGL_OBJECTS = \
+"CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.obj" \
+"CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj" \
 "CMakeFiles/learn_OpenGL.dir/src/glad.c.obj" \
-"CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj" \
-"CMakeFiles/learn_OpenGL.dir/src/main2.cpp.obj"
+"CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj"
 
 # External object files for target learn_OpenGL
 learn_OpenGL_EXTERNAL_OBJECTS =
 
+learn_OpenGL.exe: CMakeFiles/learn_OpenGL.dir/src/GUIExample.cpp.obj
+learn_OpenGL.exe: CMakeFiles/learn_OpenGL.dir/src/GUIManager.cpp.obj
 learn_OpenGL.exe: CMakeFiles/learn_OpenGL.dir/src/glad.c.obj
 learn_OpenGL.exe: CMakeFiles/learn_OpenGL.dir/src/main.cpp.obj
-learn_OpenGL.exe: CMakeFiles/learn_OpenGL.dir/src/main2.cpp.obj
 learn_OpenGL.exe: CMakeFiles/learn_OpenGL.dir/build.make
 learn_OpenGL.exe: libimgui.a
 learn_OpenGL.exe: CMakeFiles/learn_OpenGL.dir/linklibs.rsp
 learn_OpenGL.exe: CMakeFiles/learn_OpenGL.dir/objects1.rsp
 learn_OpenGL.exe: CMakeFiles/learn_OpenGL.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\repos\learn-OpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable learn_OpenGL.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\repos\learn-OpenGL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable learn_OpenGL.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\learn_OpenGL.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
