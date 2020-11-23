@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿
+#include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <learnopengl/shader.h>
@@ -8,6 +9,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include "GUIManager.h"
+#include <Windows.h>
+#include <imgui/imgui.h>
 
 // settings
 const unsigned int SCR_WIDTH = 800;
@@ -21,6 +24,9 @@ float lastFrame = 0.0f; // Time of last frame
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     glViewport(0, 0, width, height);
+    ImGui::SetNextWindowPos(ImVec2(0, 0));
+    ImGui::SetNextWindowSize(ImVec2(width, height));
+    std::cout << "test" << std::endl;
 }
 
 void processInput(GLFWwindow *window) {
@@ -178,6 +184,7 @@ int InitVAO() {
 
 
 int main() {
+//    FreeConsole();
 
     auto window = initWindows();
     if (window == NULL)
@@ -228,7 +235,6 @@ int main() {
         shader.setVec4("baseColor", 0.0f, 0.0f, 0.1f, 0.0f);
 
         // create transformations
-
         glm::mat4 model;
         glm::mat4 view;
         glm::mat4 projection;
